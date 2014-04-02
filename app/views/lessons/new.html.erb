@@ -1,0 +1,19 @@
+<h1> Create a new lesson </h1>
+
+<% if @lesson.errors.any? %>
+  <h3> Please fix these errors: </h3>
+  <ul>
+    <% @lesson.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form action="/lessons" value="post" id="new_lesson">
+  <input id="lesson_name" name="lessons[name]" type="text" value="<%= @lesson.name %>" placeholder="Name of Lesson">
+  <button id="submit_button">Submit your Lesson</button>
+</form>
+
+<textarea id="lesson_content" rows='5' cols='45' name="lessons[content]" form="new_lesson">
+  Enter the lesson content here...
+</textarea>

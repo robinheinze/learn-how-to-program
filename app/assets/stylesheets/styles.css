@@ -1,0 +1,45 @@
+
+body {
+  background-color: #A6DCDF !important;
+}
+
+a:link {color:#0C3B3D;}
+a:visited {color:#0C3B3D;}
+a:hover {color:#0C3B3D;}
+a:active {color:#0C3B3D;}
+
+
+h1 {
+  font-family: 'Nothing You Could Do', cursive !important;
+  font-weight: 400;
+  text-align: center;
+  font-size: 500px;
+}
+
+#wrapper {
+  max-width: 1250px;
+  margin: 50px auto;
+  padding: 25px;
+  background-color: #FF6F6B;
+  border: 2px solid #BF3330;
+  border-radius: 20px;
+  font-family: Verdana, sans-serif;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#lesson_name {
+  border-radius: 5px;
+}
+
+#submit_button {
+  border-radius: 5px;
+}
+
+#lesson_content {
+  border-radius: 10px;
+  margin: 20px auto;
+}
