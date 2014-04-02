@@ -20,4 +20,26 @@ describe Lesson do
       current_lesson.previous.should eq previous_lesson
     end
   end
+
+  context '.lessons_after' do
+    it 'increments the numbers of lessons that come after the given number' do
+      lesson1 = Lesson.create({:name => 'lesson1', :number => 1, :content => 'test content'})
+      lesson2 = Lesson.create({:name => 'lesson2', :number => 2, :content => 'test content'})
+      lesson3 = Lesson.create({:name => 'lesson3', :number => 3, :content => 'test content'})
+      Lesson.lessons_after(2).should eq [lesson2, lesson3]
+    end
+  end
+
+   context '.increment_lessons' do
+    it 'increments the numbers of lessons that come after the given number' do
+      lesson1 = Lesson.create({:name => 'lesson1', :number => 1, :content => 'test content'})
+      lesson2 = Lesson.create({:name => 'lesson2', :number => 2, :content => 'test content'})
+      lesson3 = Lesson.create({:name => 'lesson3', :number => 3, :content => 'test content'})
+      Lesson.increment_lessons(2)
+      lesson2.number.should eq 2
+    end
+  end
+
+
+
 end

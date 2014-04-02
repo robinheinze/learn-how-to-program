@@ -2,7 +2,7 @@
 
 <p><%= @lesson.content %></p>
 
-<p><a href="/lessons">Return to the table of contents</a> |
+<p><a href="/lessons">Return to Lessons</a> |
 <a href="/lessons/<%= @lesson.id %>/edit">Edit This Lesson</a> |
 <a href="/lessons/<%= @lesson.id %>"
    data-confirm="Are you sure?"
@@ -10,5 +10,11 @@
    rel="nofollow">Delete This Lesson</a></p>
 
 <nav class='navbar navbar-fixed-bottom' role="navigation">
-  ༺ <a href="/lessons/<%= @previous_lesson.id %>">Previous Lesson</a> | <a href = "/lessons/<%= @next_lesson.id %>">Next Lesson</a> ༻
+  <% if !@previous_lesson.nil? %>
+    ༺ <a href="/lessons/<%= @previous_lesson.id %>">Previous Lesson</a>
+  <% end %>
+  |
+  <% if !@next_lesson.nil? %>
+    <a href = "/lessons/<%= @next_lesson.id %>">Next Lesson</a> ༻
+  <% end %>
 </nav>

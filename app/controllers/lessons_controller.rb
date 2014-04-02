@@ -14,11 +14,13 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
+    @last_lesson = Lesson.find(:all, :order => 'number').last
     render('lessons/new.html.erb')
   end
 
   def create
     @lesson = Lesson.new(params[:lessons])
+    Lesson.increment_lessons(@lesson.number)
     if @lesson.save
       redirect_to("/lessons/#{@lesson.id}")
     else

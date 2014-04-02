@@ -39,7 +39,7 @@ ul {
 
 #lesson_name {
   border-radius: 5px;
-  width: 400px;
+  width: 350px;
 }
 
 #submit_button {
@@ -47,8 +47,13 @@ ul {
 }
 
 #lesson_content {
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 20px auto;
+}
+
+#lesson_number {
+  width: 45px;
+  border-radius: 5px;
 }
 
 .navbar {
