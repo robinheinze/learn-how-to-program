@@ -7,6 +7,8 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = Lesson.find(params[:id])
+    @next_lesson = @lesson.next
+    @previous_lesson = @lesson.previous
     render('lessons/show.html.erb')
   end
 
@@ -43,5 +45,7 @@ class LessonsController < ApplicationController
     @lesson.destroy
     render("lessons/destroy.html.erb")
   end
+
+
 
 end
