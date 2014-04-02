@@ -1,4 +1,5 @@
-<h1> Create a new lesson </h1>
+
+<h1><%= @lesson.name %></h1>
 
 <% if @lesson.errors.any? %>
   <h3> Please fix these errors: </h3>
@@ -9,12 +10,13 @@
   </ul>
 <% end %>
 
-<form action="/lessons" method="post" id="new_lesson">
+<form action="/lessons/<%=@lesson.id %>" method="post" id="edit_lesson">
+  <input name="_method" type="hidden" value="patch">
   <input id="lesson_name" name="lessons[name]" type="text" value="<%= @lesson.name %>" placeholder="Name of Lesson">
-  <button id="submit_button">Submit Lesson</button>
+  <button id="submit_button">Update Lesson</button>
 </form>
 
-<textarea id="lesson_content" rows='5' cols='70' name="lessons[content]" form="new_lesson" placeholder="Enter lesson description here...">
+<textarea id="lesson_content" rows='5' cols='70' name="lessons[content]" form="edit_lesson" placeholder="Enter lesson description here...">
 </textarea>
 
 <p><a href='/lessons'>Return to Main Lessons</a></p>

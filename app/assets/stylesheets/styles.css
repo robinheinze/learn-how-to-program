@@ -17,7 +17,7 @@ h1 {
 }
 
 #wrapper {
-  max-width: 1250px;
+  max-width: 1000px;
   margin: 50px auto;
   padding: 25px;
   background-color: #FF6F6B;
@@ -27,12 +27,19 @@ h1 {
   text-align: center;
 }
 
+#wrapper p {
+  max-width: 500px;
+  text-align: center;
+  margin: 20px auto;
+}
+
 ul {
   list-style-type: none;
 }
 
 #lesson_name {
   border-radius: 5px;
+  width: 400px;
 }
 
 #submit_button {
