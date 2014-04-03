@@ -3,6 +3,7 @@ class Lesson < ActiveRecord::Base
   validates :content, :presence => true
   validates :number, :presence => true
 
+  after_save :increment_lessons
 
   def next
     lesson = Lesson.find_by(:number => (self.number + 1))
@@ -12,16 +13,18 @@ class Lesson < ActiveRecord::Base
     lesson = Lesson.find_by(:number => (self.number - 1))
   end
 
-  def self.lessons_after(number)
+  def lessons_after
     total = Lesson.all.length
-    Lesson.where(:number => (number..total))
+    number = self.number
+    Lesson.where(:number => (number..total)) - [self]
   end
 
-  def self.increment_lessons(number)
-    lessons_after = Lesson.lessons_after(number)
+  def increment_lessons
+    number = self.number
+    lessons_after = self.lessons_after
     lessons_after.each do |lesson|
       old_number = lesson.number
-      lesson.update(:number => (old_number+ 1))
+      lesson.update(:number => (old_number + 1))
     end
   end
 

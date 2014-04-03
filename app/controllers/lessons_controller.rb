@@ -20,24 +20,28 @@ class LessonsController < ApplicationController
 
   def create
     @lesson = Lesson.new(params[:lessons])
-    Lesson.increment_lessons(@lesson.number)
+    # Lesson.increment_lessons(@lesson.number)
     if @lesson.save
       redirect_to("/lessons/#{@lesson.id}")
     else
+      @last_lesson = Lesson.find(:all, :order => 'number').last
       render('lessons/new.html.erb')
     end
   end
 
   def edit
     @lesson = Lesson.find(params[:id])
+    @last_lesson = Lesson.all.order('number').last
     render('lessons/edit.html.erb')
   end
 
   def update
     @lesson = Lesson.find(params[:id])
+    # Lesson.increment_lessons(@lesson.number)
     if @lesson.update(params[:lessons])
       redirect_to("/lessons/#{@lesson.id}")
     else
+      @last_lesson = Lesson.order('number').last
       render('lessons/edit.html.erb')
     end
   end

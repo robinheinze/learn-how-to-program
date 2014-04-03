@@ -1,11 +1,11 @@
 <h1>Learning Life Skills</h1>
 
 <ul>
-  <% @lessons.each do |lesson| %>
-    <li><a href='/lessons/<%= lesson.id %>'><%= lesson.name %></a></li>
+  <% @lessons.order(:number).each do |lesson| %>
+    <li><a href='/lessons/<%= lesson.id %>'><%= lesson.number %>. <%= lesson.name %></a></li>
   <% end %>
 </ul>
 
-<p><a href="/lessons/new">Create a New Lesson</a></p>
+<p>༺ <a href="/lessons/new">Create a New Lesson</a> ༻</p>
 
 
