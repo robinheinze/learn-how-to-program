@@ -13,11 +13,12 @@
 <form action="/lessons/<%=@lesson.id %>" method="post" id="edit_lesson">
   <input name="_method" type="hidden" value="patch">
   <input id="lesson_name" name="lessons[name]" type="text" value="<%= @lesson.name %>" placeholder="Name of Lesson">
-  <input value="<%= @last_lesson.number + 1 %>" id="lesson_number" name="lessons[number]" type="text" value="<%= @lesson.number %>" placeholder="Nº">
+  <input value="<%= @lesson.number %>" id="lesson_number" name="lessons[number]" type="text" value="<%= @lesson.number %>" placeholder="Nº">
   <button id="submit_button">Update Lesson</button>
 </form>
 
 <textarea id="lesson_content" rows='5' cols='70' name="lessons[content]" form="edit_lesson" placeholder="Enter lesson description here...">
+  <%= @lesson.content %>
 </textarea>
 
 <p><a href='/lessons'>Return to Main Lessons</a></p>

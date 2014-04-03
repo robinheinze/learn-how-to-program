@@ -11,7 +11,7 @@
 
 <form action="/lessons" method="post" id="new_lesson">
   <input id="lesson_name" name="lessons[name]" type="text" value="<%= @lesson.name %>" placeholder="Name of Lesson">
-  <input value="<%= @last_lesson.number + 1 %>" id="lesson_number" name="lessons[number]" type="text" value="<%= @lesson.number %>" placeholder="Nº">
+  <input value="<%= @next_lesson_num %>" id="lesson_number" name="lessons[number]" type="text" value="<%= @lesson.number %>" placeholder="Nº">
   <button id="submit_button">Submit Lesson</button>
 </form>
 

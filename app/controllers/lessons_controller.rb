@@ -14,7 +14,7 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-    @last_lesson = Lesson.find(:all, :order => 'number').last
+    @next_lesson_num = Lesson.all.length + 1
     render('lessons/new.html.erb')
   end
 
@@ -24,14 +24,13 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to("/lessons/#{@lesson.id}")
     else
-      @last_lesson = Lesson.find(:all, :order => 'number').last
+      @next_lesson_num = Lesson.all.length + 1
       render('lessons/new.html.erb')
     end
   end
 
   def edit
     @lesson = Lesson.find(params[:id])
-    @last_lesson = Lesson.all.order('number').last
     render('lessons/edit.html.erb')
   end
 
@@ -41,7 +40,7 @@ class LessonsController < ApplicationController
     if @lesson.update(params[:lessons])
       redirect_to("/lessons/#{@lesson.id}")
     else
-      @last_lesson = Lesson.order('number').last
+      @next_lesson_num = Lesson.all.length + 1
       render('lessons/edit.html.erb')
     end
   end
