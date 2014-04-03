@@ -26,7 +26,7 @@ class Lesson < ActiveRecord::Base
     #   old_number = lesson.number
     #   lesson.update(:number => (old_number + 1))
     # end
-    lessons_sorted = Lesson.order(:number)
+    lessons_sorted = Lesson.order(:number, :updated_at => :desc)
     lessons_sorted.each_with_index do |lesson, index|
       puts "#{index}, #{lesson.number}, #{lesson.name}"
       next_lesson = lessons_sorted[index + 1]

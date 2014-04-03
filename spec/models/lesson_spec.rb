@@ -36,23 +36,22 @@ describe Lesson do
       lesson2 = Lesson.create({:name => 'lesson2', :number => 2, :content => 'test content2', :updated_at => '2014-01-01'})
       lesson3 = Lesson.create({:name => 'lesson3', :number => 3, :content => 'test content3'})
       lesson4 = Lesson.create({:name => 'lesson4', :number => 2, :content => 'test content4', :updated_at => '2014-04-10'})
-      lesson4.increment_lessons
       lesson2.reload.number.should eq 3 
     end
 
-    # it 'de-increments the numbers of lessons that need to be moved up when a lesson moves up' do
-    #   lesson1 = Lesson.create({:name => 'lesson1', :number => 1, :content => 'test content'})
-    #   lesson2 = Lesson.create({:name => 'lesson2', :number => 2, :content => 'test content'})
-    #   lesson3 = Lesson.create({:name => 'lesson3', :number => 3, :content => 'test content'})
-    #   lesson4 = Lesson.create({:name => 'lesson4', :number => 4, :content => 'test content'})
-    #   lesson5 = Lesson.create({:name => 'lesson5', :number => 5, :content => 'test content'})
-    #   lesson6 = Lesson.create({:name => 'lesson6', :number => 6, :content => 'test content'})
-    #   lesson3.update(:number => 5)
-    #   lesson4.reload.number.should eq 3
-    #   lesson5.reload.number.should eq 4
-    #   lesson3.reload.number.should eq 5
-    #   lesson6.reload.number.should eq 6 
-    # end
+    it 'de-increments the numbers of lessons that need to be moved up when a lesson moves up' do
+      lesson1 = Lesson.create({:name => 'lesson1', :number => 1, :content => 'test content'})
+      lesson2 = Lesson.create({:name => 'lesson2', :number => 2, :content => 'test content'})
+      lesson3 = Lesson.create({:name => 'lesson3', :number => 3, :content => 'test content'})
+      lesson4 = Lesson.create({:name => 'lesson4', :number => 4, :content => 'test content'})
+      lesson5 = Lesson.create({:name => 'lesson5', :number => 5, :content => 'test content'})
+      lesson6 = Lesson.create({:name => 'lesson6', :number => 6, :content => 'test content'})
+      lesson3.update(:number => 5, :updated_at => '2014-04-10')
+      lesson4.reload.number.should eq 3
+      lesson5.reload.number.should eq 4
+      lesson3.reload.number.should eq 5
+      lesson6.reload.number.should eq 6 
+    end
 
     # it 'de-increments the numbers of lessons that need to be moved up when a lesson moves down' do
     #   lesson1 = Lesson.create({:name => 'lesson1', :number => 1, :content => 'test content'})
